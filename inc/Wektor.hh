@@ -1,9 +1,9 @@
 #ifndef WEKTOR_HH
 #define WEKTOR_HH
 #include <cmath>
-#include "rozmiar.h"
+#include "rozmiar.hh"
 #include <iostream>
-
+#include "LZespolona.hh"
 /*
  *  Klasa modeluje pojęcie wektora,
  *  którego rozmiar jest z góry
@@ -26,7 +26,7 @@ public:
  const SWektor<STyp, SWymiar> operator*(double liczba)const;                     //Iloczyn wektora przez liczbe
  STyp operator*(SWektor<STyp, SWymiar>Wektor2)const;                         //Iloczyn skalarny
  
-double dlugoscWektora()const;                                    //Oblicza dlugosc wektora
+const double dlugoscWektora()const;                                    //Oblicza dlugosc wektora
   
 bool operator != (const SWektor<STyp, SWymiar> &W2)const;    //przeciazenie operatora != w celu porownywania wektorow
 bool operator == (const SWektor<STyp, SWymiar> &W2)const;    //przeciazenie operatora == w celu porownywania wektorow                         
@@ -211,15 +211,38 @@ const SWektor<STyp,SWymiar> SWektor<STyp,SWymiar>::operator/(double liczba)const
     return Wektor2;
 }
 
+
+
+
 template<typename STyp, int SWymiar>
-double SWektor<STyp,SWymiar>::dlugoscWektora()const//funkcja liczaca dlugosc wektora
+const double SWektor<STyp, SWymiar>::dlugoscWektora()const//funkcja liczaca dlugosc wektora
 {
     double Wynik = 0;
-    for (int i = 0; i < ROZMIAR; i++)
+    for (int i = 0; i < SWymiar; i++)
     {
         Wynik += pow(tablica[i], 2);
     }
     return sqrt(Wynik);
+
 }
+/*
+template<>
+const double SWektor<LZespolona,ROZMIAR>::dlugoscWektora()const//funkcja liczaca dlugosc wektora
+{
+    LZespolona Wynik;
+    LZespolona elem;
+    double dlugosc=0;
+
+    for (int i = 0; i < ROZMIAR; i++)
+    {   elem=tablica[i]*sprzezenie(tablica[i]);
+        Wynik = Wynik+elem;
+    }
+
+    dlugosc=modul(Wynik);
+    return sqrt(dlugosc);
+}
+
+
+*/
 
 #endif

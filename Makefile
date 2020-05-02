@@ -6,12 +6,18 @@ __start__: ./test_wektora
 obj:
 	mkdir -p obj
 
-./test_wektora: obj obj/main.o obj/LZespolona.o
-	g++ -o ./test_wektora obj/main.o obj/LZespolona.o
+./test_wektora: obj obj/main.o obj/LZespolona.o obj/Macierz.o obj/UkladRownanLiniowych.o
+	g++ -o ./test_wektora obj/main.o obj/LZespolona.o obj/Macierz.o obj/UkladRownanLiniowych.o
 
-obj/main.o: src/main.cpp inc/Wektor.hh inc/LZespolona.hh
+obj/main.o: src/main.cpp inc/Wektor.hh inc/LZespolona.hh inc/Macierz.hh inc/UkladRownanLiniowych.hh inc/rozmiar.hh
 	g++ -c ${CXXFLAGS} -o obj/main.o src/main.cpp
 
 
-obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
+obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh inc/rozmiar.hh
 	g++ -c ${CXXFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
+
+obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh inc/rozmiar.hh
+	g++ -c ${CXXFLAGS} -o obj/Macierz.o src/Macierz.cpp
+
+obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh inc/rozmiar.hh
+	g++ -c ${CXXFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
