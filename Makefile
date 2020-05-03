@@ -16,8 +16,8 @@ obj/main.o: src/main.cpp inc/Wektor.hh inc/LZespolona.hh inc/Macierz.hh inc/Ukla
 obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh inc/rozmiar.hh
 	g++ -c ${CXXFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
 
-obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh inc/rozmiar.hh
-	g++ -c ${CXXFLAGS} -o obj/Macierz.o src/Macierz.cpp
+obj/Macierz.o:  inc/Macierz.hh inc/rozmiar.hh
+	g++ -c ${CXXFLAGS} -o obj/Macierz.o 
 
-obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh inc/rozmiar.hh
-	g++ -c ${CXXFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
+obj/UkladRownanLiniowych.o:  inc/UkladRownanLiniowych.hh inc/rozmiar.hh
+	g++ -c ${CXXFLAGS} -o obj/UkladRownanLiniowych.o 

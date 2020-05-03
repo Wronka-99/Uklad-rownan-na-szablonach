@@ -109,7 +109,8 @@ LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2)
     {
       
     Wynik.re = (Skl1.re*Skl2.re+Skl1.im*Skl2.im)/modul;
-    Wynik.im = (Skl2.re*Skl1.re-Skl1.re*Skl2.im)/modul;
+    Wynik.im = (Skl2.re*Skl1.im-Skl1.re*Skl2.im)/modul;
+    
     
     
     }

@@ -19,8 +19,6 @@ int main()
 {
 
 
-
-
 char znak;
 
 cin>>znak;
