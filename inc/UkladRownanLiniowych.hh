@@ -214,7 +214,7 @@ SWektor<STyp,SWymiar> UkladRownanLiniowych<STyp,SWymiar>::wektorbledu(SWektor<ST
 
         SWektor<STyp,SWymiar> wektor_bledu,wektor_pomocniczy,wektor_wa;
         MacierzKw<STyp,SWymiar> macierz_pomocnicza;
-        double dlugosc_wktora_bledu=0; // zmienne pomocnicze
+        double dlugosc_wektora_bledu=0; // zmienne pomocnicze
 
         macierz_pomocnicza=macierz;
         wektor_pomocniczy=wektor;// przypisanie wartosci zmiennym pomocniczym
@@ -225,7 +225,7 @@ SWektor<STyp,SWymiar> UkladRownanLiniowych<STyp,SWymiar>::wektorbledu(SWektor<ST
         wektor_bledu=wektor_wa-wektor_pomocniczy;//oblicznie wektora bledu A*x-b
 
         
-       // dlugosc_wktora_bledu=wektor_bledu.dlugoscWektora();//liczenie dlugosci wektora bledu
+        dlugosc_wektora_bledu=wektor_bledu.dlugoscWektora();//liczenie dlugosci wektora bledu
 
 
         //wyswietlanie wektora bledu oraz jego dlugosci
@@ -243,7 +243,9 @@ SWektor<STyp,SWymiar> UkladRownanLiniowych<STyp,SWymiar>::wektorbledu(SWektor<ST
             std::cout<<wektor_bledu[a]<<", ";
         }
 
-        std::cout<<")"<<std::endl;
+        std::cout<<")"<<std::endl<<std::endl;
+
+        std::cout<<"Dlugosc wektora bledu: "<<dlugosc_wektora_bledu<<std::endl;
 
     return wektor_bledu;//zwracanie wektora bledu
 

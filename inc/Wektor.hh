@@ -225,7 +225,7 @@ const double SWektor<STyp, SWymiar>::dlugoscWektora()const//funkcja liczaca dlug
     return sqrt(Wynik);
 
 }
-/*
+
 template<>
 const double SWektor<LZespolona,ROZMIAR>::dlugoscWektora()const//funkcja liczaca dlugosc wektora
 {
@@ -234,15 +234,15 @@ const double SWektor<LZespolona,ROZMIAR>::dlugoscWektora()const//funkcja liczaca
     double dlugosc=0;
 
     for (int i = 0; i < ROZMIAR; i++)
-    {   elem=tablica[i]*sprzezenie(tablica[i]);
+    {   elem=tablica[i]*sprzezenie(tablica[i])/sprzezenie(tablica[i]);
         Wynik = Wynik+elem;
     }
 
-    dlugosc=modul(Wynik);
+    dlugosc=Wynik.re*Wynik.re-Wynik.im*Wynik.im;
     return sqrt(dlugosc);
 }
 
 
-*/
+
 
 #endif
